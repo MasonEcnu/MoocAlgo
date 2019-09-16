@@ -7,58 +7,58 @@ import java.util.List;
 
 /**
  * Created by mwu on 2019/9/11
- * 冒泡排序
+ * 选择排序
  * 默认升序
- * 1.比较相邻元素，逆序则交换
- * 2.挨个按一对一对比较，则一轮结束后，最大元素应该位于队尾
- * 3.重复直到有序
+ * 1.遍历，找出最小的，与第一个交换
+ * 2.循环
  * <p>
  * 算法分析
- * 最佳情况：T(n) = O(n)   最差情况：T(n) = O(n2)   平均情况：T(n) = O(n2)
+ * 最佳情况：T(n) = O(n2)  最差情况：T(n) = O(n2)  平均情况：T(n) = O(n2)
  */
-public class BubbleSort implements ISort {
+public class SelectionSort implements ISort {
 
   @Override
   public <T extends Comparable<? super T>> void sort(List<T> list, Boolean isAscending) {
     if (list.size() > 0) {
       int size = list.size();
       for (int i = 0; i < size; i++) {
-        for (int j = i + 1; j < size; j++) {
-          int compare = list.get(i).compareTo(list.get(j));
+        int minIndex = i;
+        for (int j = i; j < size; j++) {
+          int compare = list.get(minIndex).compareTo(list.get(j));
           boolean flag = isAscending ? compare > 0 : compare < 0;
           if (flag) {
-            SortUtils.swap(list, i, j);
+            minIndex = j;
           }
         }
+        SortUtils.swap(list, i, minIndex);
       }
     }
   }
-
-  // 	for (int i = 0; i < array.length; i++)
-  //		for (int j = 0; j < array.length - 1 - i; j++)
 
   @Override
   public void sort(int[] array, Boolean isAscending) {
     if (array.length > 0) {
       int size = array.length;
       for (int i = 0; i < size; i++) {
-        for (int j = i + 1; j < size; j++) {
-          int compare = array[i] - array[j];
+        int minIndex = i;
+        for (int j = i; j < size; j++) {
+          int compare = array[minIndex] - array[j];
           boolean flag = isAscending ? compare > 0 : compare < 0;
           if (flag) {
-            SortUtils.swap(array, i, j);
+            minIndex = j;
           }
         }
+        SortUtils.swap(array, i, minIndex);
       }
     }
   }
 
   public static void main(String[] args) {
-    BubbleSort bubbleSort = new BubbleSort();
+    SelectionSort selectionSort = new SelectionSort();
     List<Integer> list = SortUtils.randomIntList(100, 100);
-    SortUtils.execSort(bubbleSort, list, false);
+    SortUtils.execSort(selectionSort, list, false);
 
     int[] array = SortUtils.randomIntArray(100, 100);
-    SortUtils.execSort(bubbleSort, array, false);
+    SortUtils.execSort(selectionSort, array, false);
   }
 }
