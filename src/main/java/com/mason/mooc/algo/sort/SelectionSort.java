@@ -19,7 +19,7 @@ public class SelectionSort implements ISort {
 
   @Override
   public <T extends Comparable<? super T>> void sort(List<T> list, Boolean isAscending) {
-    if (list.size() > 0) {
+    if (list.size() > 1) {
       int size = list.size();
       for (int i = 0; i < size; i++) {
         int minIndex = i;
@@ -37,7 +37,7 @@ public class SelectionSort implements ISort {
 
   @Override
   public void sort(int[] array, Boolean isAscending) {
-    if (array.length > 0) {
+    if (array.length > 1) {
       int size = array.length;
       for (int i = 0; i < size; i++) {
         int minIndex = i;

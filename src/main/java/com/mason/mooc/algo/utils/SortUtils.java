@@ -55,8 +55,8 @@ public class SortUtils {
     long start = System.currentTimeMillis();
     iSort.sort(list, isAscending);
     long end = System.currentTimeMillis();
-    System.out.println("List排序耗时：" + (end - start) + "ms");
     System.out.println(JSON.toJSONString(list));
+    System.out.println("List排序耗时：" + (end - start) + "ms");
   }
 
   // 执行排序
@@ -68,7 +68,7 @@ public class SortUtils {
     long start = System.currentTimeMillis();
     iSort.sort(array, isAscending);
     long end = System.currentTimeMillis();
-    System.out.println("Array排序耗时：" + (end - start) + "ms");
     System.out.println(JSON.toJSONString(array));
+    System.out.println("Array排序耗时：" + (end - start) + "ms");
   }
 }
