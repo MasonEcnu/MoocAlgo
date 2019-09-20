@@ -19,7 +19,7 @@ import java.util.List;
 public class BubbleSort implements ISort {
 
   @Override
-  public <T extends Comparable<? super T>> void sort(List<T> list, Boolean isAscending) {
+  public <T extends Comparable<? super T>> void sort(List<T> list, boolean isAscending) {
     if (list.size() > 1) {
       int size = list.size();
       for (int i = 0; i < size; i++) {
@@ -38,7 +38,7 @@ public class BubbleSort implements ISort {
   //		for (int j = 0; j < array.length - 1 - i; j++)
 
   @Override
-  public void sort(int[] array, Boolean isAscending) {
+  public void sort(int[] array, boolean isAscending) {
     if (array.length > 1) {
       int size = array.length;
       for (int i = 0; i < size; i++) {
